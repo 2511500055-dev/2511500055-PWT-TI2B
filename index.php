@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li class="nav-item">
                       <a href="index.php?page=siswa" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Siswiam</p>
+                        <p>Siswa</p>
                       </a>
                     </li>
                     <li class="nav-item">
