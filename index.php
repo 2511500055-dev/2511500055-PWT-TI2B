@@ -27,6 +27,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="wrapper">
 
       <!-- Navbar -->
+       
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
@@ -118,31 +119,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="#" class="nav-link active">
+                      <a href="index.php?page=guru" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-
-
                         <p>Guru</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="index.php?page=siswa" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Siswsssa</p>
+                        <p>Siswiam</p>
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">
+                      <a href="index.php?page=kelas" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Kelas</p>
                       </a>
                     </li>
-                    <li class="nav-item">
-                      <a href="#" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Mapel</p>
-                      </a>
-                    </li>
+                   <li class="nav-item">
+  <a href="index.php?page=mapel" class="nav-link">
+    <i class="far fa-circle nav-icon"></i>
+    <p>Mapel</p>
+  </a>
+</li>
+
+<li class="nav-item">
+  <a href="index.php?page=ekstra055" class="nav-link">
+    <i class="far fa-circle nav-icon"></i>
+    <p>Ekstrakurikuler</p>
+  </a>
+</li>
                   </ul>
                 </li>
                 <li class="nav-item">
@@ -178,16 +184,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="#" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                      Kelas
+                      Jadwal Guru
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
 
                 <li class="nav-item">
-                  <a href="#" class="nav-link active">
+                  <a href="index.php?page=ganti_password" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                      Jadwal
+                      Ganti Password
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
@@ -207,7 +213,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <a href="#" class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
-                      jadwal
+                      Jadwal Kelas
+                      <i class="right fas fa-angle-left"></i>
+                    </p>
+                  </a>
+                  
+                  <li class="nav-item">
+                  <a href="#" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      Ganti Password
                       <i class="right fas fa-angle-left"></i>
                     </p>
                   </a>
@@ -258,7 +273,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <h5 class="card-title">Dashboard</h5>
 
                     <p class="card-text">
-                      SELAMAT DATANG DI WEBSITE XYZ
+                    <?php 
+                    if (isset($_GET['page'])) {
+                      $page = $_GET['page'];
+                    } else {
+                      $page = "";
+                    }
+                    if ($page == "") {
+                      include "page/dashboard.php";
+                    } elseif (!file_exists("page/$page.php")) {
+                      echo "file tidak ditemukan";
+                    } else {
+                      include "page/$page.php";
+                    }
+                  ?>
                     </p>
 
 
